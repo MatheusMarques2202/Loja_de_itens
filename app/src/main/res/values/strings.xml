@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Loja de itens</string>
+     <string name="login">Entrar</string>
+     <string name="senha">Senha</string>
+</resources>
