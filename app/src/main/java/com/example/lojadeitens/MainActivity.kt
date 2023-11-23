@@ -98,7 +98,7 @@ if (cadastrar) {
         Spacer(modifier = Modifier.size(20.dp))
 
         Button(onClick = { }) {
-            Text(text = "Entrar")
+            Text(text = "Entrar ")
         }
     }
 }
