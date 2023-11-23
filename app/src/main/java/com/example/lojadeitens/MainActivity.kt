@@ -48,9 +48,12 @@ class MainActivity : ComponentActivity() {
 @Preview(showBackground = true)
 @Composable
 fun AppLojaDeItem () {
+    var nome by remember { mutableStateOf("") }
     var login by remember { mutableStateOf("") }
     var senha by remember { mutableStateOf("") }
     var cadastrar by remember { mutableStateOf( false) }
+    var confimarSenha by remember { mutableStateOf("") }
+
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -80,9 +83,9 @@ fun AppLojaDeItem () {
 if (cadastrar) {
     Spacer(modifier = Modifier.size(20.dp))
     CampoDeTexto(
-        value = confirmarSenha,
+        value = confimarSenha,
         onValueChance = { confimarSenha = it },
-        idTexto = R.string.confimarSenha
+        idTexto = R.string.c
     )
         if (!cadastrar){
             Text(
