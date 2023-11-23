@@ -104,7 +104,13 @@ fun AppLojaDeItem () {
             ){
                 TelaLogin(espacoDasBarras = espacoDasBarras)
             }
+                  composable(
+                route = "TelaLogin"
+            ){
+              LojaDeItensTheme ()
+            }
         }
+
     }
 }
 
