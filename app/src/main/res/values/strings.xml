@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">Loja de itens</string>
-     <string name="login">login</string>
-     <string name="senha">Senha</string>
     <string name="nome">Nome</string>
-    <string name="confirmarSenha">ConfimarSenha</string>
+    <string name="login">login</string>
+     <string name="senha">Senha</string>
+    <string name="login_erro">Login Incorreto</string>
+    <string name="senha_erro">Senha Incorreto</string>
+     <string name="confirmarSenha">ConfimarSenha</string>
 </resources>

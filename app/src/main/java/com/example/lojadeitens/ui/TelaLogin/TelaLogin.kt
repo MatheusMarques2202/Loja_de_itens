@@ -24,18 +24,20 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.example.lojadeitens.R
 
 @Composable
 fun TelaLogin(
-    espacoDasBarras: PaddingValues
-
+    espacoDasBarras: PaddingValues,
+    controleNavegacao: NavController
 ) {
     var nome by remember { mutableStateOf("") }
     var login by remember { mutableStateOf("") }
     var senha by remember { mutableStateOf("") }
     var cadastrar by remember { mutableStateOf(false) }
     var confimarSenha by remember { mutableStateOf("") }
+    var logarErro by remember { mutableStateOf(false) }
 
     Column(
         verticalArrangement = Arrangement.Center,
@@ -60,38 +62,67 @@ fun TelaLogin(
                 CampoDeTexto(
                     value = nome,
                     onValueChance = { nome = it },
-                    idTexto = R.string.nome
+                    idTexto = R.string.nome,
+                    isError = false
                 )
                 Spacer(modifier = Modifier.size(20.dp))
             }
             CampoDeTexto(
                 value = login,
                 onValueChance = { login = it },
-                idTexto = R.string.login
+                idTexto = if (logarErro)
+                    R.string.login_erro
+                else
+                    R.string.login,
+                isError = logarErro
             )
             Spacer(modifier = Modifier.size(20.dp))
             CampoDeTexto(
                 value = senha,
                 onValueChance = { senha = it },
-                idTexto = R.string.senha
+                idTexto = if (logarErro)
+                    R.string.senha_erro
+                else
+                    R.string.senha,
+                isError = logarErro
             )
             if (cadastrar) {
                 Spacer(modifier = Modifier.size(20.dp))
                 CampoDeTexto(
                     value = confimarSenha,
                     onValueChance = { confimarSenha = it },
-                    idTexto = R.string.confirmarSenha
+                    idTexto = R.string.confirmarSenha,
+                    isError = logarErro
                 )
             }
             if (!cadastrar) {
-                Text(text = "Cadastrar conta", modifier = Modifier.clickable {
-                    cadastrar = !cadastrar
-                })
+                Text(
+                    text = "Cadastrar conta",
+                    modifier = Modifier.clickable {
+                        cadastrar = true
+                    }
+                )
             }
             Spacer(modifier = Modifier.size(10.dp))
 
-            Button(onClick = { }) {
-                Text(text = "Entrar")
+            Button(
+                onClick = {
+                    controleNavegacao.navigate("TelaLojaDeItens")
+                if (senha == "9876" && login == "m") {
+                    cadastrar = false
+                    logarErro = false
+                    controleNavegacao.navigate("TelaLojaDeItens")
+                } else {
+                    logarErro = true
+                }
+            }
+            ) {
+                Text(
+                    text = if (cadastrar)
+                        "Cadastrar"
+                    else
+                        "Entrar"
+                )
             }
         }
     }
@@ -100,13 +131,20 @@ fun TelaLogin(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CampoDeTexto(
-    value: String, onValueChance: (String) -> Unit, idTexto: Int
+    value:
+    String,
+    onValueChance: (String) -> Unit,
+    idTexto: Int,
+    isError: Boolean
 ) {
-    TextField(value = value,
+    TextField(
+        value = value,
         onValueChange = onValueChance,
         label = {
-        Text(text = stringResource(idTexto))
-    })
-
-
+            Text(
+                text = stringResource(idTexto)
+            )
+        },
+        isError = isError
+    )
 }
