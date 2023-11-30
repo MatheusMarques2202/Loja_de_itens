@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "824311734520",
+    "project_id": "lojadeitens-c657a",
+    "storage_bucket": "lojadeitens-c657a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:824311734520:android:a49e7ffd53075299d6db0d",
+        "android_client_info": {
+          "package_name": "com.example.lojadeitens"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIjDHdwAZ_MPyxbo3J_lLLBM1M5_TTnsw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
