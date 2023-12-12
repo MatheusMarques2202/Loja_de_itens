@@ -40,7 +40,7 @@ import kotlinx.coroutines.flow.StateFlow
                         mensagemToast(localContext, "Autenticado com sucesso!!")
                     }
                 } else {
-                    mensagemToast(localContext, "Erro ao Autenticar")
+                    mensagemToast(localContext, "Erro ao Autenticar ")
                 }
             }
     }
