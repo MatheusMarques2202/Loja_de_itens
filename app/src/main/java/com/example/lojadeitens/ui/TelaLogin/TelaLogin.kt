@@ -72,7 +72,7 @@ fun TelaLogin(
     val painter = rememberAsyncImagePainter(
         ImageRequest
             .Builder(LocalContext.current)
-            .data(data = telaLoginViewModel.fotoPerfilUri)
+            .data(data = telaLoginViewModel.fotoPerfilUri )
             .build()
     )
 
